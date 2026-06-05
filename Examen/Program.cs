@@ -5,6 +5,38 @@ namespace Examen
 {
     internal class Program
     {
+        static (string nombre, float valor) SeleccionarPlan()
+        {
+            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine(" Selecciona un plan de mensualidad:");
+            Console.WriteLine("  1 - Black ($90.000)");
+            Console.WriteLine("  2 - Smart ($75.000)");
+            Console.WriteLine("  3 - Black sin permanencia ($100.000)");
+            Console.WriteLine("------------------------------------------------------");
+
+            int plan;
+            while (true)
+            {
+                Console.Write("Opción (1–3): ");
+                string entrada = Console.ReadLine();
+                bool ok = int.TryParse(entrada, out plan) && (plan >= 1 && plan <= 3);
+                if (ok) break;
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Opción inválida. Debes ingresar 1, 2 o 3.");
+                Console.ResetColor();
+            }
+            Console.WriteLine();
+
+            switch (plan)
+            {
+                case 1: return ("Black", 90000);
+                case 2: return ("Smart", 75000);
+                case 3: return ("Black sin permanencia", 100000);
+                default: return ("", 0);
+            }
+        }
+
         static void Main(string[] args)
         {
             int ContadorUsuarios = 0;
@@ -311,45 +343,7 @@ namespace Examen
                         Console.WriteLine();
 
                         // Seleccionar plan
-                        Console.WriteLine("------------------------------------------------------");
-                        Console.WriteLine(" Selecciona un plan de mensualidad:");
-                        Console.WriteLine("  1 - Black ($90.000)");
-                        Console.WriteLine("  2 - Smart ($75.000)");
-                        Console.WriteLine("  3 - Black sin permanencia ($100.000)");
-                        Console.WriteLine("------------------------------------------------------");
-
-                        int Plan;
-                        while (true)
-                        {
-                            Console.Write("Opcion (1–3): ");
-                            string entradaPlan = Console.ReadLine();
-                            bool planOK = int.TryParse(entradaPlan, out Plan) && (Plan >= 1 && Plan <= 3);
-                            if (planOK) break;
-
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Opción inválida. Debes ingresar 1, 2 o 3.");
-                            Console.ResetColor();
-                        }
-                        Console.WriteLine();
-
-                        string PlanMensaje = "";
-                        float PlanValor = 0f;
-
-                        switch (Plan)
-                        {
-                            case 1:
-                                PlanMensaje = "Black";
-                                PlanValor = 90000;
-                                break;
-                            case 2:
-                                PlanMensaje = "Smart";
-                                PlanValor = 75000;
-                                break;
-                            case 3:
-                                PlanMensaje = "Black sin permanencia";
-                                PlanValor = 100000;
-                                break;
-                        }
+                        var (PlanMensaje, PlanValor) = SeleccionarPlan();
 
                         // Índice de Masa Corporal (IMC)
                         float IMC = 0f;
@@ -566,48 +560,10 @@ namespace Examen
                     Console.WriteLine();
 
                     // Seleccionar plan
-                    Console.WriteLine("------------------------------------------------------");
-                    Console.WriteLine(" Selecciona un plan de mensualidad:");
-                    Console.WriteLine("  1 - Black ($90.000)");
-                    Console.WriteLine("  2 - Smart ($75.000)");
-                    Console.WriteLine("  3 - Black sin permanencia ($100.000)");
-                    Console.WriteLine("------------------------------------------------------");
-
-                    int PlanPago;
-                    while (true)
-                    {
-                        Console.Write("Opción (1–3): ");
-                        string entradaPlanPago = Console.ReadLine();
-                        bool planPagoOK = int.TryParse(entradaPlanPago, out PlanPago) && (PlanPago >= 1 && PlanPago <= 3);
-                        if (planPagoOK) break;
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Opción inválida. Debes ingresar 1, 2 o 3.");
-                        Console.ResetColor();
-                    }
-                    Console.WriteLine();
-
-                    string PlanMensajePago = "";
-                    int PlanValorPago = 0;
-
-                    switch (PlanPago)
-                    {
-                        case 1:
-                            PlanMensajePago = "Black";
-                            PlanValorPago = 90000;
-                            break;
-                        case 2:
-                            PlanMensajePago = "Smart";
-                            PlanValorPago = 75000;
-                            break;
-                        case 3:
-                            PlanMensajePago = "Black sin permanencia";
-                            PlanValorPago = 100000;
-                            break;
-                    }
+                    var (PlanMensajePago, PlanValorPago) = SeleccionarPlan();
 
                     ContadorPlanes++;
-                    TotalIngresos += PlanValorPago; // cumula el valor pagado
+                    TotalIngresos += PlanValorPago; // acumula el valor pagado
 
                     // Mostrar factura
                     Console.ForegroundColor = ConsoleColor.Green;
