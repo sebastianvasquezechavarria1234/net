@@ -661,26 +661,22 @@ namespace Examen
                     continue; // Regresa al menu principal
                 }
                 
-                // Opción 5 Volver al menú principal 
+                // Option 5: Exit
                 else if (Opcion == 5)
                 {
                     Console.Clear();
-
-                    
                     Console.WriteLine("");
-                    Console.WriteLine("Eligistes la opcion 5 salistes del sistema");
+                    Console.WriteLine("You chose option 5. Exiting the system...");
                     Console.WriteLine("");
-                    Console.WriteLine("Presiona cualquier tecla para volver al menú principal...");
+                    Console.WriteLine("Press any key to exit...");
                     Console.ResetColor();
-
-                    
                     Console.ReadKey(true);
-                    continue; // Regresa al menu principal
+                    break;
                 }
 
 
 
-            } // while principl
+            } // while principal
         }
     }
 }
