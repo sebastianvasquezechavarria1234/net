@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Examen
+namespace BodyCheck
 {
     internal class Program
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examen", "Examen\Examen.csproj", "{5A7110A0-BDDD-4BA4-9EEB-9BB948AD018D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BodyCheck", "BodyCheck\BodyCheck.csproj", "{5A7110A0-BDDD-4BA4-9EEB-9BB948AD018D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
